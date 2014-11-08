@@ -1,0 +1,19 @@
+{
+  "name": "strict-rate-limiter",
+  "version": "0.1.0",
+  "description": "Rate limiter backed by redis with strict concurrency rules for scalable applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "jshint && jasmine-node spec --verbose --captureExceptions --forceexit"
+  },
+  "author": "Daniel Regeci",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5",
+    "jshint": "^2.5.10",
+    "redis": "^0.12.1"
+  },
+  "dependencies": {
+    "q": "^1.0.1"
+  }
+}
