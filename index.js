@@ -132,8 +132,8 @@ RateLimit.prototype.storageGet = function (callback) {
 
   function retry() {
     if (retries >= 4) {
-      var err = new Error('Max. number retries reached');
-      err.name = 'MAX_RETRY';
+      var err = new Error('Max. number of retries reached');
+      err.code = 'MAX_RETRY';
       return callback(err);
     }
 

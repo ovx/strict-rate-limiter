@@ -1,8 +1,9 @@
 {
   "name": "strict-rate-limiter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Rate limiter backed by redis with strict concurrency rules for scalable applications",
   "main": "index.js",
+  "homepage": "https://github.com/getc/strict-rate-limiter",
   "scripts": {
     "test": "jshint && jasmine-node spec --verbose --captureExceptions --forceexit"
   },
@@ -15,5 +16,9 @@
   },
   "dependencies": {
     "q": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/getc/strict-rate-limiter.git"
   }
 }
