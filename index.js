@@ -45,8 +45,8 @@ RateLimit.prototype.init = function (options, redisClient) {
   this.storageId = 'ratelimit:' + this.id;
 
   assert(this.id, 'options.id required');
-  assert(this.limit, 'options.id required');
-  assert(this.duration, 'options.id required');
+  assert(this.limit, 'options.limit required');
+  assert(this.duration, 'options.duration required');
 };
 
 /**
