@@ -8,6 +8,11 @@ var LOCK_TTL = 300; // ms
 // when locked, try again after this delay
 var RETRY_DELAY = 20; // ms
 
+// default values
+var DEFAULTS = {
+  namespace: 'ratelimit:'
+};
+
 // exports
 module.exports = RateLimit;
 
@@ -21,6 +26,7 @@ function RateLimit() {
  * @param {Object} redisClient Instance of a redis client
  */
 RateLimit.prototype.init = function (options, redisClient) {
+  var namespace;
   assert(typeof options === 'object', 'Requires `options` object');
   assert(redisClient, 'Requires instance of Redis client');
 
@@ -39,10 +45,15 @@ RateLimit.prototype.init = function (options, redisClient) {
    * Duration in milliseconds
    */
   this.duration = options.duration;
+  /**
+   * @cfg {String} namespace
+   * Namespace to prefix the id with (defaults to <tt>'ratelimit:'</tt>)
+   */
+  namespace = (typeof options.namespace === 'string') ? options.namespace : DEFAULTS.namespace;
   this.redisClient = redisClient;
   this.reset = 0;
   this.remaining = 0;
-  this.storageId = 'ratelimit:' + this.id;
+  this.storageId = namespace + this.id;
 
   assert(this.id, 'options.id required');
   assert(this.limit, 'options.limit required');
