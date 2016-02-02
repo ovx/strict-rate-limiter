@@ -63,6 +63,9 @@ limiters[id].get(function(err, limit, remaining, reset) {
   - `id` Unique identifier (API key, IP address or user ID)
   - `limit` Number of tokens
   - `duration` Duration in milliseconds
+  - `namespace` (optional) Overwrite key prefix
+    (defaults to `ratelimit:`)
+    (actual redis key is `namespace + id`)
   
 ## Test
 
