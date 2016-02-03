@@ -1,6 +1,6 @@
 {
   "name": "strict-rate-limiter",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Rate limiter backed by redis with strict concurrency rules for scalable applications",
   "main": "index.js",
   "homepage": "https://github.com/getc/strict-rate-limiter",
