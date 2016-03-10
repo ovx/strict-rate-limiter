@@ -12,7 +12,7 @@
   "devDependencies": {
     "jasmine-node": "^1.14.5",
     "jshint": "^2.5.10",
-    "redis": "^0.12.1"
+    "ioredis": "^1.15.1"
   },
   "dependencies": {
     "q": "^1.0.1"

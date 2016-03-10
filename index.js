@@ -120,20 +120,20 @@ RateLimit.prototype.storageGet = function (callback) {
       return callback(err);
     }
 
-    if (res === null || res[2] === 0) {
+    if (res === null || res[2][1] === 0) {
       // res[2] === 0 means already locked, try again later
       return retry.bind(this)();
 
-    } else if (res[1] < 0) {
+    } else if (res[1][1] < 0) {
       // TTL is 0, start new limiter
       this.start();
       this.remaining -= 1;
 
     } else {
       // all good, set .remaining and .reset
-      this.remaining = (res[0] >> 0) - 1;
+      this.remaining = (res[0][1] >> 0) - 1;
       this.reset = new Date();
-      this.reset.setMilliseconds(this.reset.getMilliseconds() + (res[1] >> 0));
+      this.reset.setMilliseconds(this.reset.getMilliseconds() + (res[1][1] >> 0));
     }
 
     this.storageSet(function (err) {
